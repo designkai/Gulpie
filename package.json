@@ -1,0 +1,34 @@
+{
+  "name": "Gulplie",
+  "version": "0.0.1",
+  "description": "Front end Gulp boilerplate",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "cssnano": "^3.7.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-less": "^3.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-sequence": "^0.4.5",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "pixrem": "^3.0.1",
+    "postcss-color-rgba-fallback": "^2.2.0",
+    "postcss-opacity": "^3.0.0",
+    "vinyl-ftp": "^0.4.5"
+  },
+  "author": "Domenico Perri",
+  "license": "MIT"
+}
