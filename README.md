@@ -1,1 +1,1 @@
-# Gulpie, a front end boilerplate
+# Gulpie. A front end boilerplate
