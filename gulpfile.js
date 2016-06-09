@@ -176,7 +176,7 @@ gulp.task('default', function(cb) {
     gulp.watch('src/scripts/**', ['scripts']);
     gulp.watch('src/styles/**/*.scss', ['scss']);
     gulp.watch('src/styles/**/*.less', ['less']);
-    gulp.watch('src/*.html', ['html']);
+    gulp.watch('src/**/*.html', ['html']);
 });
 
 // Delete the dist/ folder
@@ -217,4 +217,4 @@ gulp.task('deploy', function () {
         .pipe( conn.newerOrDifferentSize( '/public_html/project' ) ) // only upload newer or different size files
         .pipe( conn.dest( '/public_html/project' )
     );
-} );
+});
