@@ -20,6 +20,8 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     // Compress images
     imagemin = require('gulp-imagemin'),
+    // Compile Jade
+    jade = require('gulp-jade'),
     // Compile LESS
     less = require('gulp-less'),
     // Create navite notification
@@ -143,6 +145,23 @@ gulp.task('less', function() {
         .pipe(notify({ message: '"less" complete' }));
 });
 
+// Jade
+gulp.task('jade', function() {
+    return gulp.src('src/**/*.jade')
+        // Prevent breaks from errors
+        .pipe(plumber())
+        .pipe(jade())
+        // Send OSX error notification
+        .on("error", notify.onError(function (error) {
+            return '"jade" error: ' + error.message;
+        }))
+        .pipe(gulp.dest('dist'))
+        // Refresh BrowserSync
+        .pipe(browserSync.reload({stream: true}))
+        // Send OSX complete notification
+        .pipe(notify({ message: '"jade" complete' }));
+});
+
 // Move all files into dist
 gulp.task('dist', function() {
     // Move all top-level files, HTML files, hidden files and fonts
@@ -171,11 +190,12 @@ gulp.task('html', function() {
 
 // Start the localhost and watch everything
 gulp.task('default', function(cb) {
-    gulpsequence('images', 'scripts', 'scss', 'less', 'dist', 'local')(cb);
+    gulpsequence('images', 'scripts', 'scss', 'less', 'jade', 'dist', 'local')(cb);
     gulp.watch('src/images/**', ['images']);
     gulp.watch('src/scripts/**', ['scripts']);
     gulp.watch('src/styles/**/*.scss', ['scss']);
     gulp.watch('src/styles/**/*.less', ['less']);
+    gulp.watch('src/**/*.jade', ['jade']);
     gulp.watch('src/**/*.html', ['html']);
 });
 
