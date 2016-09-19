@@ -65,7 +65,7 @@ gulp.task('local', function() {
 
 // Images
 gulp.task('images', function() {
-    gulp.src('src/images/**/*')
+    gulp.src(['src/images/**/*', '!src/**/*.md'])
         // Prevent breaks from errors
         .pipe(plumber())
         // Compress images
@@ -77,7 +77,7 @@ gulp.task('images', function() {
 
 // Javascripts
 gulp.task('scripts', function() {
-    return gulp.src(['src/scripts/**/*.js'])
+    return gulp.src('src/scripts/**/*.js')
         // Prevent breaks from errors
         .pipe(plumber())
         // Filename of compressed JS
