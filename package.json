@@ -6,7 +6,7 @@
     "type": "git",
     "url": ""
   },
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.13.0",
     "cssnano": "^3.7.0",
     "del": "^2.2.0",
