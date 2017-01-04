@@ -4,7 +4,7 @@
   "description": "Front end Gulp boilerplate",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/designkai/Gulpie.git"
   },
   "dependencies": {
     "browser-sync": "^2.13.0",
