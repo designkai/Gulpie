@@ -1,3 +1,5 @@
+/*! Gulpie | MIT License | github.com/designkai/Gulpie */
+
 // Load plugins
 var gulp = require('gulp'),
     // For browser prefixing CSS
