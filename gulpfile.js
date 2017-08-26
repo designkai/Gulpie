@@ -167,7 +167,7 @@ gulp.task('jade', function() {
 // Move all files into dist
 gulp.task('dist', function() {
     // Move all top-level files, HTML files, hidden files and fonts
-    gulp.src(['src/*', 'src/**/*.html', 'src/.*', 'src/fonts/**/*', '!src/**/*.jade'])
+    gulp.src(['src/*', 'src/**/*.html', 'src/.*', 'src/fonts/**/*', '!src/**/*.jade', 'src/**/**/*'])
         // Prevent breaks from errors
         .pipe(plumber())
         .pipe(gulp.dest('dist'))
