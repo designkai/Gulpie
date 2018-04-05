@@ -77,6 +77,12 @@ gulp.task('images', function() {
         .pipe(notify({ message: '"images" complete' }));
 });
 
+// Fonts
+gulp.task('fonts', function() {
+    return gulp.src(['src/fonts/**/*'])
+        .pipe(gulp.dest('dist/fonts/'));
+});
+
 // Javascripts
 gulp.task('scripts', function() {
     return gulp.src('src/scripts/**/*.js')
@@ -167,7 +173,7 @@ gulp.task('jade', function() {
 // Move all files into dist
 gulp.task('dist', function() {
     // Move all top-level files, HTML files, hidden files and fonts
-    gulp.src(['src/*', 'src/**/*.html', 'src/.*', 'src/fonts/**/*', '!src/**/*.jade', 'src/**/**/*'])
+    gulp.src(['src/*', 'src/**/*.html', 'src/.*', '!src/**/*.jade'])
         // Prevent breaks from errors
         .pipe(plumber())
         .pipe(gulp.dest('dist'))
@@ -192,7 +198,7 @@ gulp.task('html', function() {
 
 // Start the localhost and watch everything
 gulp.task('default', function(cb) {
-    gulpsequence('images', 'scripts', 'scss', 'less', 'jade', 'dist', 'local')(cb);
+    gulpsequence('images', 'fonts', 'scripts', 'scss', 'less', 'jade', 'dist', 'local')(cb);
     gulp.watch('src/images/**', ['images']);
     gulp.watch('src/scripts/**', ['scripts']);
     gulp.watch('src/styles/**/*.scss', ['scss']);
@@ -210,7 +216,7 @@ gulp.task('clean', function() {
 gulp.task('build', function(cb) {
     // Compress CSS for deploy
     nano = true;
-    gulpsequence('clean', 'images', 'scripts', 'scss', 'less', 'jade', 'dist')(cb);
+    gulpsequence('clean', 'images', 'fonts', 'scripts', 'scss', 'less', 'jade', 'dist')(cb);
 });
 
 // Deploy files with FTP (this doesn't clean before running)
