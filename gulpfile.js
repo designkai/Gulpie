@@ -58,7 +58,7 @@ var nano = false;
 // Starts localhost
 gulp.task('local', function() {
     browserSync({
-        server: { baseDir: "dist/" },
+        server: "./dist/",
         // Makes sure it opens in Chrome, regardless of default browser
         browser: "google chrome",
         notify: false
@@ -79,8 +79,8 @@ gulp.task('images', function() {
 
 // Fonts
 gulp.task('fonts', function() {
-    return gulp.src(['src/fonts/**/*'])
-        .pipe(gulp.dest('dist/fonts/'));
+    return gulp.src(['src/fonts/**/*', '!src/**/*.md'])
+        .pipe(gulp.dest('dist/fonts'));
 });
 
 // Javascripts
@@ -172,7 +172,7 @@ gulp.task('jade', function() {
 
 // Move all files into dist
 gulp.task('dist', function() {
-    // Move all top-level files, HTML files, hidden files and fonts
+    // Move all top-level files, HTML files and hidden files
     gulp.src(['src/*', 'src/**/*.html', 'src/.*', '!src/**/*.jade'])
         // Prevent breaks from errors
         .pipe(plumber())
@@ -180,7 +180,7 @@ gulp.task('dist', function() {
         // Refresh BrowserSync
         .pipe(browserSync.reload({stream: true}))
         // Send OSX complete notification
-        .pipe(notify({ message: '"dist" complete' }));
+        .pipe(notify( '"dist" complete' ));
 });
 
 // Same as dist, but HTML specific
@@ -193,7 +193,7 @@ gulp.task('html', function() {
         // Refresh BrowserSync
         .pipe(browserSync.reload({stream: true}))
         // Send OSX complete notification
-        .pipe(notify({ message: '"html" complete' }));
+        .pipe(notify( '"html" complete' ));
 });
 
 // Start the localhost and watch everything
